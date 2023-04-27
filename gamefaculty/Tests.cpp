@@ -81,12 +81,56 @@ uint8_t runTest(int test) {
         mage = Wizard("Bob", 10, 2, 20, sp, 6);
         if (mage.getHealth() != 10)
             return 1;
-        if (mage.getLevel() != 1)
+        if (mage.getLevel() != 2)
             return 2;
         if (mage.getName() != "Bob")
             return 3;
         if (!mage.castSpell(sp[1]))
             return 4;
+        if (mage.getSpellPower() != 6)
+            return 5;
+        if (mage.getSpellList() != sp)
+            return 6;
+
+        mage.setHealth(90);
+        mage.setLevel(20);
+        mage.setName("Bobinator");
+
+        if (mage.getHealth() != 90)
+            return 7;
+        if (mage.getLevel() != 20)
+            return 8;
+        if (mage.getName() != "Bobinator")
+            return 9;
+
+        return 0;
+    }
+    case Knight_test:
+    {
+        fighter = Knight("Max", 30, 5, 0.5, 9);
+        if (fighter.getHealth() != 30)
+            return 1;
+        if (fighter.getLevel() != 5)
+            return 2;
+        if (fighter.getName() != "Max")
+            return 3;
+        fighter.setHealth(120);
+        fighter.setLevel(20);
+        fighter.setName("Sir Maximilian");
+
+        if (fighter.getHealth() != 120)
+            return 4;
+        if (fighter.getLevel() != 20)
+            return 5;
+        if (fighter.getName() != "Sir Maximilian")
+            return 6;
+
+        fighter.takeDamage(1000);
+        if (fighter.getHealth() != 0)
+            return 7;
+
+
+        return 0;
     }
 
     default:

@@ -13,7 +13,5 @@ public:
 	Knight(std::string name, int health, int level, float armor, int swordDamage);
 	~Knight();
 
-
-
 	void takeDamage(int damage);
 };
